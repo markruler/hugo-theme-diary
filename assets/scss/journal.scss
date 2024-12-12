@@ -959,6 +959,78 @@ a {
         padding: 20px 20px;
       }
     }
+
+    section.social-share {
+      padding: 20px 35px;
+      position: relative;
+      top: -0.5em;
+      text-align: center;
+
+      ul.share-icons {
+        margin: 0;
+        cursor: default;
+        list-style: none;
+        padding-left: 0;
+        margin-top: 1em;
+        li {
+          padding: 0 .4em 10px 0 !important;
+          display: inline-block;
+          &:last-child {
+            padding-right: 0;
+          }
+          p,
+          & > * .label {
+            display: none;
+          }
+          & > *:before {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            text-transform: none !important;
+          }
+        }
+        ul {
+          .share-icons {
+            li > * {
+              text-decoration: none;
+              border: 0;
+            }
+          }
+        }
+      }
+      .share-btn {
+        padding: 0.25em;
+        width: 3em;
+        display: inline-block;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        // box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+        outline: none;
+        text-align: center;
+        text-decoration: none;
+        &:hover {
+          color: #ffffff !important;
+        }
+        &:active {
+          position: relative;
+          top: 2px;
+          box-shadow: none;
+          color: #e2e2e2;
+          outline: none;
+        }
+        .widget-social__link-icon {
+          margin: 0;
+        }
+      }
+    }
+    .social-share-nav {
+      .share-btn h3 {
+        color: #ffffff;
+      }
+    }
   }
 }
 

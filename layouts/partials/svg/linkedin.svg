@@ -1,0 +1,12 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="linkedin" viewBox="0 0 128 128" overflow="hidden">
+  <defs></defs>
+  <g style="pointer-events:none">
+    <title style="pointer-events:inherit">background</title>
+    <rect x="-1" y="-1" width="582" height="402" id="canvas_background" fill="none" style="pointer-events:inherit"></rect>
+  </g>
+  <g style="pointer-events:all">
+    <title style="pointer-events:inherit">Layer 1</title>
+    <circle cx="64" cy="64" fill="#0076B4" r="64" id="svg_2" stroke-dasharray="none"></circle>
+    <path d="M44.119,95.934L29.184,95.934L29.184,47.93L44.119,47.93L44.119,95.934zM36.656,41.371C31.864,41.371 28,37.495 28,32.718C28,27.943 31.864,24.066 36.656,24.066C41.427,24.066 45.302,27.942 45.302,32.718C45.303,37.495 41.428,41.371 36.656,41.371zM100,95.934L85.081,95.934L85.081,72.59C85.081,67.024 84.984,59.862 77.329,59.862C69.564,59.862 68.381,65.927 68.381,72.192L68.381,95.934L53.479,95.934L53.479,47.93L67.78,47.93L67.78,54.492L67.984,54.492C69.974,50.718 74.841,46.739 82.101,46.739C97.206,46.739 99.998,56.678 99.998,69.607L100,95.934L100,95.934z" fill="#FFFFFF" style="pointer-events:inherit" id="svg_4"></path>
+  </g>
+</svg>
