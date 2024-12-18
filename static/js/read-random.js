@@ -1,5 +1,10 @@
-document.querySelectorAll(".read-random").forEach((button) => {
-  button.addEventListener("click", (event) => {
+const buttons = [
+  ...document.querySelectorAll(".read-random"),
+  ...document.querySelectorAll(".read-random-mobile"),
+];
+
+for (const element of buttons) {
+  element.addEventListener("click", (event) => {
     const button = event.target;
     const host = location.protocol + "//" + location.host;
     const sitemapUrl = host + "/sitemap.xml";
@@ -40,4 +45,4 @@ document.querySelectorAll(".read-random").forEach((button) => {
         console.error("Error:", error);
       });
   });
-});
+}
