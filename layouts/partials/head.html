@@ -1,5 +1,13 @@
 <head>
-<title>{{.Title}}</title>
+<!-- <title>{{.Title}}</title> -->
+<title>
+  {{ block "title" . }}
+  {{ .Site.Title }}
+  {{ with .Params.Title }}
+  | {{ . }}
+  {{ end }}
+  {{ end }}
+</title>
 
 {{ $description := .Params.description}}
 {{if .IsHome}}
@@ -14,6 +22,7 @@
 <meta name="description" content="{{ $description }}">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="/manifest.json">
 
 <!-- open-graph -->
 {{if .Site.Params.enableOpenGraph}}

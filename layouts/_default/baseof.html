@@ -28,5 +28,18 @@
         <script src="{{"/js/journal.js" | relURL}}"></script>
     {{- end -}}
     <script src="{{"/js/read-random.js" | relURL}}"></script>
+
+    <script>
+        // PWA: Register service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/js/sw.js')
+            .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
+        }
+      </script>
     </body>
 </html>
