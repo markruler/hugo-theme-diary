@@ -1,5 +1,5 @@
 $color-accent: #1976d2;
-//$color-accent: #330000;
+$color-background: #3e9eff;
 $back-container-background: #fcfcfc;
 $front-container-background: #ffffff;
 
@@ -51,7 +51,7 @@ $single-column-post-meta-size: 14px;
 $single-column-tag-category-title-size: 14px;
 $single-column-toc-size: 14px;
 
-$h1: 30px;
+$h1: 42px;
 $h-diff: 3px;
 
 ::selection {
@@ -89,6 +89,7 @@ h3 {
 h1 {
   font-size: $h1;
   margin: 20px auto;
+  box-shadow: inset 0 -0.4em 0 $color-background;
 }
 
 h2 {
@@ -97,22 +98,22 @@ h2 {
 }
 
 h3 {
-  font-size: $h1 - 3 * $h-diff;
+  font-size: $h1 - 6 * $h-diff;
   margin: 20px auto;
 }
 
 h4 {
-  font-size: $h1 - 3 * $h-diff;
+  font-size: $h1 - 7 * $h-diff;
   padding: 20px auto;
 }
 
 h5 {
-  font-size: $h1 - 3 * $h-diff - 1;
+  font-size: $h1 - 7 * $h-diff - 1;
   padding: 10px auto;
 }
 
 h6 {
-  font-size: $h1 - 3 * $h-diff - 2;
+  font-size: $h1 - 7 * $h-diff - 2;
   padding: 10px auto;
 }
 
@@ -170,6 +171,11 @@ blockquote {
   }
   * {
     color: $dark-accent;
+  }
+  a {
+    &:not(sup a) {
+      text-decoration: wavy underline;
+    }
   }
 }
 
@@ -974,7 +980,7 @@ a {
         padding-left: 0;
         margin-top: 1em;
         li {
-          padding: 0 .4em 10px 0 !important;
+          padding: 0 0.4em 10px 0 !important;
           display: inline-block;
           &:last-child {
             padding-right: 0;
@@ -1188,9 +1194,9 @@ mjx-container {
 }
 
 .read-random-mobile {
-    background: transparent;
-    border: solid 2px;
-    width: 300px;
-    display: block;
-    margin: 0 auto;
+  background: transparent;
+  border: solid 2px;
+  width: 300px;
+  display: block;
+  margin: 0 auto;
 }

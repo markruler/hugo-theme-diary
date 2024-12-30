@@ -246,8 +246,14 @@ body.night {
   h6,
   li {
     color: $dark-mode-text;
-    *:not(a) {
+    *:not(a, b, strong) {
       color: $dark-mode-text;
+    }
+  }
+  .post-body {
+    strong,
+    b {
+      color: $light-accent;
     }
   }
   .pagination * {
