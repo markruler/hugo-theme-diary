@@ -71,13 +71,15 @@
     {{ if and (not (.Params.disableToC) ) (.IsPage) }}
       <script src="{{"js/toc.js" | relURL}}"></script>
     {{ end }}
-    <link type="text/css" rel="stylesheet" href="{{"vendor/css/bootstrap.min.css" | relURL}}">
+    {{/* <link type="text/css" rel="stylesheet" href="{{"vendor/css/bootstrap.min.css" | relURL}}"> */}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 {{- else -}}
     {{- /* with leading slash */ -}}
     {{ if and (not (.Params.disableToC) ) (.IsPage) }}
       <script src="{{"/js/toc.js" | relURL}}"></script>
     {{ end }}
-    <link type="text/css" rel="stylesheet" href="{{"/vendor/css/bootstrap.min.css" | relURL}}">
+    {{/* <link type="text/css" rel="stylesheet" href="{{"vendor/css/bootstrap.min.css" | relURL}}"> */}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 {{- end -}}
 
 {{ if not .Site.Params.disableDarkmode }}
@@ -88,8 +90,10 @@
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 {{ end }}
 
+{{/*
 <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Material+Icons">
+*/}}
 
 {{ if .Site.Params.cloudflareToken }}
 <!-- Cloudflare Web Analytics -->

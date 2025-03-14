@@ -229,19 +229,19 @@ var toggleDarkMode = function () {
 
   isDarkMode = !isDarkMode;
   let icon = document.getElementById("darkModeToggleIcon");
-  let icon2 = document.getElementById("darkModeToggleIcon2");
+  let icon2 = document.getElementById("darkModeToggleButton2");
   if (isDarkMode == true) {
     document.cookie = "night=1;path=/";
     document.body.classList.add("night");
-    icon.innerText = "light_mode";
-    icon2.innerText = "light_mode";
-    setGiscusTheme("dark");
+    if (icon) icon.innerText = "☀️";
+    if (icon2) icon2.innerText = "☀️";
+    setGiscusTheme("🌙");
   } else {
     document.cookie = "night=0;path=/";
     document.body.classList.remove("night");
-    icon.innerText = "dark_mode";
-    icon2.innerText = "dark_mode";
-    setGiscusTheme("light");
+    if (icon) icon.innerText = "🌙";
+    if (icon2) icon2.innerText = "🌙";
+    setGiscusTheme("☀️");
   }
 };
 

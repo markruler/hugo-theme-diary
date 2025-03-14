@@ -14,14 +14,12 @@
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
             :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
+            🔝
         </a>
         {{ if not .Site.Params.disableDarkMode }}
         <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
+            <span class="pagination-action-icon" id="darkModeToggleIcon">
+                🌙
             </span>
         </a>
         {{ end }}
@@ -29,9 +27,7 @@
         {{ if gt .Paginator.TotalPages 1 }}
             {{ if .Paginator.HasPrev }}
             <a class="pagination-action" href="{{.Paginator.Prev.URL}}">
-                <i class="material-icons pagination-action-icon">
-                    chevron_left
-                </i>
+                ◀️
             </a>    
             {{ else }}
             <div class="pagination-action" style="visibility:hidden"></div>
@@ -46,9 +42,7 @@
 
             {{ if .Paginator.HasNext }}
             <a class="pagination-action" href="{{.Paginator.Next.URL}}">
-                <i class="material-icons pagination-action-icon">
-                    chevron_right
-                </i>
+                ▶️
             </a>
             {{ else }}
             <div class="pagination-action" style="visibility:hidden"></div>

@@ -33,13 +33,11 @@
                         {{ end }}
 
                         {{ if .Params.categories }}
-                            <i class="material-icons" style="">folder</i>
-                                <a href="{{ "/categories/" | relLangURL }}{{ with .Params.categories }}{{ index . 0 | urlize }}{{ end }}">{{ .Params.categories }}</a>
-                                &nbsp;
+                            <a href="{{ "/categories/" | relLangURL }}{{ with .Params.categories }}{{ index . 0 | urlize }}{{ end }}">{{ .Params.categories }}</a>
+                            &nbsp;
                         {{ end }}
 
                         {{ if gt .Params.tags 0 }}
-                            <i class="material-icons" style="">label</i>
                             {{ range .Params.tags }}
                                 <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
                                 &nbsp;

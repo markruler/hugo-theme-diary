@@ -3,9 +3,7 @@
 <div class="pagination">
     {{ if .Paginator.HasPrev }}
     <a class="pagination-action" href="{{.Paginator.Prev.URL}}" style="opacity:1">
-        <i class="material-icons pagination-action-icon">
-            chevron_left
-        </i>
+        ◀️
     </a>
     {{ else }}
     <div class="pagination-action" style="opacity:0" ></div>
@@ -16,12 +14,9 @@
         </div>
 
         {{ if .Paginator.HasNext }}
-        <a class="pagination-action" href="{{.Paginator.Next.URL}}"
-           style="opacity:1">
-           <i class="material-icons pagination-action-icon">
-               chevron_right
-           </i>
-       </a>
+        <a class="pagination-action" href="{{.Paginator.Next.URL}}" style="opacity:1">
+            ▶️
+        </a>
         {{ else }}
             <div class="pagination-action" style="opacity:0"></div>
         {{ end }}
