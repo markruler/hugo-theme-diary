@@ -73,19 +73,27 @@
       <script defer src="{{"/js/toc.js" | relURL}}"></script>
     {{ end }}
     {{/* <link type="text/css" rel="stylesheet" href="{{"vendor/css/bootstrap.min.css" | relURL}}"> */}}
+    {{/*
     <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></noscript>
-{{- end -}}
+    */}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {{- end -}}
 
 {{ if not .Site.Params.disableDarkmode }}
-{{ $darkmode := resources.Get "scss/dark-mode.scss" | toCSS | minify | fingerprint }}
-<link rel="preload" as="style" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ $darkmode.RelPermalink }}"></noscript>
-
+  {{ $darkmode := resources.Get "scss/dark-mode.scss" | toCSS | minify | fingerprint }}
+  {{/*
+  <link rel="preload" as="style" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ $darkmode.RelPermalink }}"></noscript>
+  */}}
+  <link rel="stylesheet" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen">
 {{ else }}
-{{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
-<link rel="preload" as="style" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
+  {{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
+  {{/*
+  <link rel="preload" as="style" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
+  */}}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 {{ end }}
 
 {{ if .Site.Params.cloudflareToken }}
