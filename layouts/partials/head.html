@@ -64,36 +64,29 @@
 <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
 {{ end }}
 
+{{/* css preload: https://stackoverflow.com/questions/68035757/how-to-eliminate-render-blocking-resources-app-css*/}}
 <!-- For compatibility. View https://github.com/AmazingRise/hugo-theme-diary/pull/135 for details.-->
 {{- $hugoVersion := split (replaceRE ".*([0-9]+)\\.([0-9]+)\\.([0-9]+).*" "$1 $2 $3" hugo.Version) " " -}}
 {{- if and (eq (int (index $hugoVersion 0)) 0) (ge (int (index $hugoVersion 1)) 101) -}}
-    {{- /* no leading slash */ -}}
-    {{ if and (not (.Params.disableToC) ) (.IsPage) }}
-      <script src="{{"js/toc.js" | relURL}}"></script>
-    {{ end }}
-    {{/* <link type="text/css" rel="stylesheet" href="{{"vendor/css/bootstrap.min.css" | relURL}}"> */}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-{{- else -}}
     {{- /* with leading slash */ -}}
     {{ if and (not (.Params.disableToC) ) (.IsPage) }}
-      <script src="{{"/js/toc.js" | relURL}}"></script>
+      <script defer src="{{"/js/toc.js" | relURL}}"></script>
     {{ end }}
     {{/* <link type="text/css" rel="stylesheet" href="{{"vendor/css/bootstrap.min.css" | relURL}}"> */}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></noscript>
 {{- end -}}
 
 {{ if not .Site.Params.disableDarkmode }}
 {{ $darkmode := resources.Get "scss/dark-mode.scss" | toCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen">
+<link rel="preload" as="style" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ $darkmode.RelPermalink }}"></noscript>
+
 {{ else }}
 {{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+<link rel="preload" as="style" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
 {{ end }}
-
-{{/*
-<link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Material+Icons">
-*/}}
 
 {{ if .Site.Params.cloudflareToken }}
 <!-- Cloudflare Web Analytics -->

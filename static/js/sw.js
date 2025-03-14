@@ -1,6 +1,6 @@
 const CACHE_NAME = "markruler-pwa-cache-v1";
 const urlsToCache = [
-  "/favicon.ico",
+  "/images/favicon.ico",
   // "/",
   // Uncaught (in promise) TypeError: Failed to execute 'Cache' on 'addAll': Request failed
   // "/index.css",
