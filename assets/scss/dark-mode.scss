@@ -253,6 +253,10 @@ body.night {
   .post-body {
     strong,
     b {
+      color: $dark-mode-text;
+      font-weight: bolder;
+    }
+    a {
       color: $light-accent;
     }
   }

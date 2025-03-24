@@ -192,6 +192,13 @@ a {
   }
 }
 
+p {
+  strong,
+  b {
+    font-weight: bolder;
+  }
+}
+
 .a-block {
   display: block;
   text-decoration: none !important;
