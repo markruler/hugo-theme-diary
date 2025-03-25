@@ -58,9 +58,9 @@ $h-diff: 3px;
   background: rgba($color-accent, 0.4);
 }
 
-html {
-  overflow-y: scroll;
-}
+// html {
+//   overflow-y: scroll;
+// }
 
 body {
   background: $back-container-background;
@@ -634,19 +634,19 @@ p {
   }
 }
 
-.pagination-bar-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: $side-container-width;
-  text-align: right;
-  font-family: $sans-preferred-font-list;
-  padding: 20px 0;
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-}
+// .pagination-bar-container {
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   height: 100vh;
+//   width: $side-container-width;
+//   text-align: right;
+//   font-family: $sans-preferred-font-list;
+//   padding: 20px 0;
+//   overflow: scroll;
+//   display: flex;
+//   flex-direction: column;
+// }
 
 .stream-container {
   padding-left: $side-container-width;
