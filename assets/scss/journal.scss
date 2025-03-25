@@ -82,6 +82,15 @@ body {
 
 h1,
 h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+
+h1,
+h2,
 h3 {
   font-weight: 400;
 }
@@ -126,7 +135,14 @@ button {
 
 table {
   table-layout: fixed;
+  border-collapse: collapse;
   overflow-x: scroll;
+  td,
+  th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
 }
 
 button {
@@ -149,12 +165,16 @@ pre {
   padding: 12px 15px;
   border-radius: 5px;
   font-family: $mono-font-list;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
   * {
     background: none;
     font-family: $mono-font-list !important;
   }
   code {
     padding: 0;
+    color: inherit;
     * {
       color: inherit;
     }
@@ -181,6 +201,8 @@ blockquote {
 
 a {
   color: $color-accent;
+  text-decoration: none;
+  background-color: transparent;
   &:hover {
     color: darken($color-accent, 10%);
     text-underline-position: under;
@@ -247,6 +269,25 @@ p {
   @media screen and (max-width: $single-column-max-width) {
     padding: 0 15px;
   }
+}
+
+#navBar {
+  display: flex;
+  flex-wrap: wrap; // allow us to do the line break for collapsing content
+  align-items: center;
+  justify-content: space-between; // space out brand from logo
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .single-column-nav-container {
@@ -1204,6 +1245,7 @@ mjx-container {
   background: transparent;
   border: solid 2px;
   width: 300px;
+  font-size: inherit;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
 }
