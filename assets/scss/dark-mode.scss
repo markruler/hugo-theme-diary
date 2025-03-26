@@ -24,6 +24,10 @@ body.night {
     }
   }
 
+  div.newer-posts {
+    color: $dark-mode-text;
+  }
+
   a {
     color: $light-accent;
     &:hover {

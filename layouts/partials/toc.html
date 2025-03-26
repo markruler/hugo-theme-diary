@@ -24,9 +24,11 @@
 						{{ if gt $next_heading $prev_heading }}
 							{{ range seq (sub $next_heading $prev_heading) }}
 								{{ if site.Params.enableAutoCollapse }}
-									<ul class="collapse" data-toggle="collapse">
+									<li>
+										<ul class="collapse" data-toggle="collapse">
 								{{ else }}
-									<ul>
+									<li>
+										<ul>
 								{{ end }}
 							{{ end }}
 						{{ end }}
@@ -36,7 +38,6 @@
 									{{ $header | plainify | htmlUnescape }}
 								</a>
 							</li>
-						
 						{{ $scratch.Set "prev_heading" $next_heading }}
 					{{ end }}
 				{{ end }}
