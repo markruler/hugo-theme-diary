@@ -1,0 +1,34 @@
+{{- /* Custom link render hook: add default utm_source to external links */ -}}
+{{- $href := .Destination -}}
+{{- $text := .Text | safeHTML -}}
+
+{{- $isExternal := or (hasPrefix $href "http://") (hasPrefix $href "https://") -}}
+
+{{- if and $isExternal (not (in $href "utm_source=")) -}}
+  {{- $utm := "utm_source=markruler.github.io" -}}
+
+  {{- $base := $href -}}
+  {{- $frag := "" -}}
+
+  {{- if in $href "#" -}}
+    {{- $parts := split $href "#" -}}
+    {{- $base = index $parts 0 -}}
+    {{- if ge (len $parts) 2 -}}
+      {{- $frag = printf "#%s" (index $parts 1) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $sep := "?" -}}
+  {{- if in $base "?" -}}
+    {{- $sep = "&" -}}
+  {{- end -}}
+
+  {{- $href = printf "%s%s%s%s" $base $sep $utm $frag -}}
+{{- end -}}
+
+<a href="{{ $href | safeURL }}"
+   {{- with .Title }} title="{{ . }}"{{ end -}}
+   {{- if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end -}}>
+  {{- $text -}}
+</a>
+
